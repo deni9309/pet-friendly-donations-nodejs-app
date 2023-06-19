@@ -5,15 +5,15 @@ exports.getAll = () => Animal.find({}).lean();
 exports.getLastThreeAnimals = async () => {
     const animals = await this.getAll();
     const lastThree = animals.slice(-3);
-    
+
     return lastThree;
 };
 
 exports.filterByLocation = async (location) => {
     let result = await this.getAll();
-    
+
     if (location) {
-        result = result.filter(a => a.location.toLowerCase() == location.toLowerCase());   
+        result = result.filter(a => a.location.toLowerCase() == location.toLowerCase());
     }
 
     return result;
